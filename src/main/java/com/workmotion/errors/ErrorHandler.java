@@ -1,5 +1,6 @@
 package com.workmotion.errors;
 
+import com.workmotion.state.Events;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,5 +20,10 @@ public class ErrorHandler {
     @ExceptionHandler(value = InvalidStateTransitionException.class)
     public ResponseEntity<Error> handInvalidStateTransitionException(){
         return ResponseEntity.badRequest().body(new Error("The state transition is invalid"));
+    }
+
+    @ExceptionHandler(value = InvalidActionException.class)
+    public ResponseEntity<Error> handleInvalidActionException(InvalidActionException e){
+        return ResponseEntity.badRequest().body(new Error("The action is not valid, it should be one of " + Events.events.keySet()));
     }
 }

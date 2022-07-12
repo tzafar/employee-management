@@ -2,6 +2,7 @@ package com.workmotion.onboarding;
 
 import com.workmotion.errors.EmployeeAlreadyExistsException;
 import com.workmotion.errors.EmployeeNotFoundException;
+import com.workmotion.errors.InvalidActionException;
 import com.workmotion.errors.InvalidStateTransitionException;
 import com.workmotion.state.EmployeeStateMachine;
 import com.workmotion.state.Events;
@@ -46,6 +47,9 @@ public class EmployeeService {
         }
 
         EmployeeStateMachine employeeStateMachine = Events.events.get(event);
+        if (employeeStateMachine == null) {
+            throw new InvalidActionException();
+        }
         if (employeeStateMachine.sourceAndTargetState().getValidTransitions().containsKey(employee.getStates())) {
             employee.setStates(employeeStateMachine.sourceAndTargetState().getValidTransitions().get(employee.getStates()));
             this.employeeRepository.update(employee);

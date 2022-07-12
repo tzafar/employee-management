@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  workmotion-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wormotion-backend:latest
+    ports:
+      - '8080:8080'
+    container_name: workmotino-backend
+
+

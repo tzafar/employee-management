@@ -1,14 +1,8 @@
-Please pick a challenge according to your seniority level.
+# Employee state management API
+This API provides endpoints to create, retrieve, and manage employee's state at Work Motion. 
 
-We also added some guidelines to clarify our expectations from your submission, please look through them before you start working on your assignment.
-
-```
-Note: we advise against picking a challenge above your seniority level,
-it will be much harder to pass the assignment if you do,
-besides there are additional interview rounds where we will be able to gauge your seniority more accurately so this extra effort might not pay off.
-
-But if you feel confident about your skills, by all means, go ahead!
-```
-
-
-We wish you good luck!
+## How to run the API locally
+1. Make sure you have docker running
+2. Checkout code into a directory `git clone git@github.com:tzafar/workmotion.git`
+3. In terminal `cd` to that directory and run `docker-compose up`
+4. Goto http://localhost:8080/workmotion/swagger-ui.html you can try and test the endpoint through the UI. 

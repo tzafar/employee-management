@@ -8,6 +8,6 @@ services:
     image: wormotion-backend:latest
     ports:
       - '8080:8080'
-    container_name: workmotino-backend
+    container_name: workmotion-backend
 
 

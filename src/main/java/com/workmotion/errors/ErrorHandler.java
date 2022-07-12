@@ -16,11 +16,6 @@ public class ErrorHandler {
         return ResponseEntity.badRequest().body(new Error("The user already exists"));
     }
 
-    @ExceptionHandler(value = GeneralException.class)
-    public ResponseEntity<Error> handleGeneralError(GeneralException e){
-        return ResponseEntity.internalServerError().body(new Error("Something went wrong please try again later"));
-    }
-
     @ExceptionHandler(value = InvalidStateTransitionException.class)
     public ResponseEntity<Error> handInvalidStateTransitionException(){
         return ResponseEntity.badRequest().body(new Error("The state transition is invalid"));
